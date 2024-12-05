@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        #qr-code {
+            display: none;
+            margin-top: 10px;
+            width: 200px;
+            height: 200px;
+        }
+
+        #download-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Start Landing Section -->
+		<div class="landing">
+            
+			<div class="intro-text">
+				<h1>WIKIVAL</h1>
+				<p>
+					Todo Valorant en tus manos.
+				</p>
+			</div>
+		</div>
+		<!-- End Landing Section -->
+        <!-- Start Features -->
+		<div class="features">
+			<div class="container">
+				<div class="feat">
+					<i class="fas fa-magic fa-3x"></i>
+					<h3>Guarda tus Line ups</h3>
+					<p>
+						Funcion para guardar Nombre, Foto y descripcion de tu Line Up
+					</p>
+                    <img style="height: auto; margin: 0 auto; width: 350px;" src="img/Lineup iphone.png" alt="">
+				</div>
+				<div class="feat">
+					<i class="far fa-gem fa-3x"></i>
+					<h3>Aprendete los Agentes y Armas</h3>
+					<p>
+						Puedes ver todas las armas de valorant con sus skins, a la vez que aprenderte las habilidades de los agentes
+					</p>
+                    <img style="height: auto; margin: 0 auto; width: 350px;" src="img/Agentes.png" alt="">
+				</div>
+				<div class="feat">
+					<i class="fas fa-globe-asia fa-3x"></i>
+					<h3>Disfruta de nuestros Minijuegos</h3>
+					<p>
+						Adivina el agente disponible para pasar un breve momento de diversion.
+					</p>
+                    <img style="height: auto; margin: 0 auto; width: 350px;" src="img/Minijuego.png" alt="">
+				</div>
+			</div>
+		</div>
+		<!-- End Features -->
+        <!-- Start About -->
+		<div class="about">
+			<div class="container">
+				<h2 class="special-heading" style="color: #1C1C1C;">Descargar App</h2>
+				
+				<div class="about-content">
+					<div class="image">
+						<img style="margin-left: -60px; margin-top: -180px;" src="img/foto promo.png" alt="" />
+					</div>
+					<div class="text">
+						<p>
+							Explora agentes, armas y sus características, guarda tus mejores lineups con fotos, y diviértete con minijuegos diseñados para mejorar tus habilidades.
+                            Con WikiVal, tienes todo lo que necesitas para llevar tu    estrategia al siguiente nivel.
+						</p>
+                        <div>
+                            <button style="margin: 0 auto; background-color: #FF4655; color: white; border-radius: 20px; border: none;" id="download-button">Descargar App</button>
+                            <img style="margin: 0 auto;"  id="qr-code" src="qr-code.png" alt="Escanea para descargar">
+                        </div>
+						
+						<h3>¡Descárgala ahora y domina el campo de batalla!</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End About -->
+        <!-- Start Footer -->
+		<div class="footer">
+			&copy; 2024 <span>WIKIVAL</span> All Right Reserved
+		</div>
+		<!-- End Footer -->
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const isMobile = navigator.userAgent.toLowerCase().includes("mobi") || navigator.userAgent.toLowerCase().includes("android");
+                const downloadButton = document.getElementById('download-button');
+                const qrCode = document.getElementById('qr-code');
+                const apkUrl = './aplicacion.apk'; // Ruta relativa al archivo APK
+        
+                if (isMobile) {
+                    // Si es móvil, muestra el botón y oculta el QR
+                    qrCode.style.display = 'none';
+                    downloadButton.style.display = 'block';
+        
+                    downloadButton.addEventListener('click', () => {
+                        window.location.href = apkUrl;
+                    });
+                } else {
+                    // Si no es móvil, muestra el QR y oculta el botón
+                    downloadButton.style.display = 'none';
+                    qrCode.style.display = 'block';
+        
+                    // Generar el código QR dinámicamente
+                    qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(window.location.origin + '/' + apkUrl)}&size=200x200`;
+                }
+            });
+        </script>
+        
+        
+
+</body>
+</html>
