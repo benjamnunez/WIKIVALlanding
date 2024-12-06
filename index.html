@@ -79,7 +79,7 @@
 						</p>
                         <div>
                             <button style="margin: 0 auto; background-color: #FF4655; color: white; border-radius: 20px; border: none;" id="download-button">Descargar App</button>
-                            <img style="margin: 0 auto;"  id="qr-code" src="qr-code.png" alt="Escanea para descargar">
+                            <img style="margin: 0 auto;"  id="qr-code" src="img/QRbueno2.png" alt="Escanea para descargar">
                         </div>
 						
 						<h3>¡Descárgala ahora y domina el campo de batalla!</h3>
@@ -99,7 +99,7 @@
                 const isMobile = navigator.userAgent.toLowerCase().includes("mobi") || navigator.userAgent.toLowerCase().includes("android");
                 const downloadButton = document.getElementById('download-button');
                 const qrCode = document.getElementById('qr-code');
-                const apkUrl = 'https://benjamnunez.github.io/WIKIVALlanding/download/app-debug.apk'; // Ruta relativa al archivo APK
+                const apkUrl = 'download/app-debug.apk'; // Ruta relativa al archivo APK
         
                 if (isMobile) {
                     // Si es móvil, muestra el botón y oculta el QR
@@ -115,7 +115,7 @@
                     qrCode.style.display = 'block';
         
                     // Generar el código QR dinámicamente
-                    qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(window.location.origin + '/' + apkUrl)}&size=200x200`;
+                    
                 }
             });
         </script>
